@@ -1,2 +1,4 @@
-# home-adiutor
-My personal home assiasent and server configuration 
+# Home Adiutor
+My home assistant extension and server configuration 
+
+## Goal
