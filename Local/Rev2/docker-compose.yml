@@ -7,8 +7,6 @@ volumes:
 services:
 
   webserver:
-        depends_on:
-            - wordpress
         image: nginx:1.21.1-alpine
         container_name: webserver
         restart: unless-stopped
@@ -20,8 +18,5 @@ services:
             - ./nginx-conf:/etc/nginx/conf.d
             - ./website:/usr/share/nginx/html/
             #- certbot-etc:/etc/letsencrypt
-        networks:
-            #- app-network
 volumes:
   website:
-    external: true
