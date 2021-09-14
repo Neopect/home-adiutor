@@ -22,6 +22,16 @@ services:
     ports:
         - "8080:80"
         #- "443:443"
+  
+  gitServ:
+    build: 
+      context: .
+      dockerfile: git.Dockerfile
+    container_name: git-server
+    restart: unless-stopped
+    ports:
+        - "8080:80"
+        #- "443:443"
 
   # adminer:
   #   image: adminer
