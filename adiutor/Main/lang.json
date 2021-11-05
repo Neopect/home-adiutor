@@ -12,5 +12,19 @@
         "Whats new",
         "whatcha doing",
         "How's it going"
+    ],
+
+    "queryinit": [
+        "What is",
+        "Who is",
+        "How do",
+        "Can you tell me",
+        "Whats",
+        "Can I get"
+    ],
+
+    "time": [
+        "time",
+        "the time"
     ]
 }

@@ -137,5 +137,8 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-
+# Personal config file that contains personal api keys and prefs
 config.yml
+
+# Testing folder for random experiments
+Testing/
