@@ -1,7 +1,8 @@
 # Main file
-
+import coms
 
 def init():
-    pass
+    # Iniitalizes features
+    coms.query()
 
 init()
