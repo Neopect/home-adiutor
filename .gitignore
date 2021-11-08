@@ -142,3 +142,5 @@ config.yml
 
 # Testing folder for random experiments
 Testing/
+
+.vscode/

@@ -30,20 +30,62 @@ def langIntrep(query):
     going through each word, trying to ref link it to the 
     lang.json index.
     """
-    
+    #TODO Refractor and Simplify
+    #FIXME Computer can't read multiword phrases if word is used in a singlar context
     qlst = query.split()
+    # print("query "+ query)
+    # print(qlst)
     extWords= []
-    for x in qlst:
+    tranState= []
+    for state_org in qlst:
         # For each word in query try to match with a phrase
         # If not, add it to extWords[] and try again until possible
         # If nonthing is found, error out a not understanding quote
-        if x.contains(query):
-            print()
+        print("Starting analysis for " + state_org)
+        print("starting extWords = to vv")
+        print(extWords)
+        state_new = ""
+        if extWords != []:
+            for e in extWords:
+                state_new = e + " " 
+            state_new = state_new + state_org
+        else:
+            state_new = state_org
+        print("Starting full analysis for " + state_new)
+
+        jr = open("adiutor\Main\lang.json")
+        jrdata = json.load(jr)
+        jr.close()
+
+        solved = False
+        # while solved == False:
+        for x in jrdata:
+            for y in jrdata[x]:
+                if y.lower() == state_new.lower():
+                    solved = True
+                    print("True")
+                    tranState.append(x)
+                    extWords.clear()
+                    break
+
+            if solved == True:
+                break
+            #     pass
+
+        if solved == False:
+            extWords.append(state_org)
+
+        print("final extWords = to vv")
+        print(extWords)
+        print("\n=====================================================================================\n")
+
+    print(tranState)
+
+        
+
+        
 
 
-
-
-# def 
 
 
 # Hey Computer,| what is  | the Time
