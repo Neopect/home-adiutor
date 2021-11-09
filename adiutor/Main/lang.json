@@ -2,11 +2,10 @@
     "wake":[
         "Hey",
         "Yo",
-        "Computer",
-        "Whats up"
+        "Computer"
     ],
 
-    "greeing": [
+    "greeting": [
         "How are you doing",
         "Whats up",
         "Whats new",

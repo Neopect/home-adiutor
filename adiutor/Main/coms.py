@@ -31,53 +31,89 @@ def langIntrep(query):
     lang.json index.
     """
     #TODO Refractor and Simplify
-    #FIXME Computer can't read multiword phrases if word is used in a singlar context
+    #TODO Remove punctuation to avoid errors
+    
     qlst = query.split()
-    # print("query "+ query)
-    # print(qlst)
+    
     extWords= []
     tranState= []
-    for state_org in qlst:
-        # For each word in query try to match with a phrase
-        # If not, add it to extWords[] and try again until possible
-        # If nonthing is found, error out a not understanding quote
-        print("Starting analysis for " + state_org)
-        print("starting extWords = to vv")
-        print(extWords)
-        state_new = ""
-        if extWords != []:
-            for e in extWords:
-                state_new = e + " " 
-            state_new = state_new + state_org
-        else:
-            state_new = state_org
-        print("Starting full analysis for " + state_new)
+    
+    solved_fut = False
+
+    for ct, state_org in enumerate(qlst):
+        print('iter of ' + str(ct))
+
+        if solved_fut == True:
+            solved_fut = False
+            continue
+        
+        extWords.append(state_org)
+
+        # Combines any unsolved words from previous loop to current loop
+        # state_new = str()
+        # if extWords != []:
+        #     for e in extWords:
+        #         state_new = e + " " 
+        #     state_new = state_new + state_org
+        # else:
+        #     state_new = state_org
+
+        state_new = ''.join(extWords)
+        # if extWords != []:
+        #     for e in extWords:
+        #         state_new = e + " " 
+        #     state_new = state_new + state_org
+        # else:
+        #     state_new = state_org
+        
+        # Creates possible query for multiword phrases and reduce iterations
+        state_fut = str()
+        try:
+            state_fut = state_new + " " + qlst[ct + 1]
+        except:
+            print("EOP")
+        
 
         jr = open("adiutor\Main\lang.json")
         jrdata = json.load(jr)
         jr.close()
 
         solved = False
-        # while solved == False:
+        
+        print(extWords)
+
+        print('state_new = ' + state_new)
+        print('state_fut = ' + state_fut)
+
+        # Checks lib for synonyms of dic words
         for x in jrdata:
             for y in jrdata[x]:
-                if y.lower() == state_new.lower():
+                # Doesn't account for which one to check first, just checks what comes first in lib
+                if y.lower() == state_fut.lower():
                     solved = True
-                    print("True")
+                    solved_fut = True
+                    print("True fut")
+                    tranState.append(x)
+                    extWords.clear()
+                    break
+                elif y.lower() == state_new.lower():
+                    solved = True
+                    print("True new")
                     tranState.append(x)
                     extWords.clear()
                     break
 
             if solved == True:
                 break
-            #     pass
+           
 
-        if solved == False:
-            extWords.append(state_org)
+        # if solved == False:
+        #     extWords.append(state_org)
 
-        print("final extWords = to vv")
+        # if solved == False:
+        #     extWords.append(state_org)
+        
         print(extWords)
-        print("\n=====================================================================================\n")
 
     print(tranState)
 
