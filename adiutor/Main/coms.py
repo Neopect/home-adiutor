@@ -30,90 +30,47 @@ def langIntrep(query):
     going through each word, trying to ref link it to the 
     lang.json index.
     """
-    #TODO Refractor and Simplify
     #TODO Remove punctuation to avoid errors
     
     qlst = query.split()
     
     extWords= []
     tranState= []
-    
     solved_fut = False
 
     for ct, state_org in enumerate(qlst):
-        print('iter of ' + str(ct))
-
-        if solved_fut == True:
+        solved = False
+        if solved_fut:
             solved_fut = False
             continue
-        
-        extWords.append(state_org)
 
         # Combines any unsolved words from previous loop to current loop
-        # state_new = str()
-        # if extWords != []:
-        #     for e in extWords:
-        #         state_new = e + " " 
-        #     state_new = state_new + state_org
-        # else:
-        #     state_new = state_org
-
-        state_new = ''.join(extWords)
-        # if extWords != []:
-        #     for e in extWords:
-        #         state_new = e + " " 
-        #     state_new = state_new + state_org
-        # else:
-        #     state_new = state_org
+        extWords.append(state_org)
+        state_new = ''.join(extWords).lower()
         
         # Creates possible query for multiword phrases and reduce iterations
         state_fut = str()
-        try:
-            state_fut = state_new + " " + qlst[ct + 1]
-        except:
-            print("EOP")
+        try: state_fut = state_new + " " + qlst[ct + 1].lower()
+        except: print("EOP")
         
-
         jr = open("adiutor\Main\lang.json")
         jrdata = json.load(jr)
         jr.close()
 
-        solved = False
-        
-        print(extWords)
-
-        print('state_new = ' + state_new)
-        print('state_fut = ' + state_fut)
-
         # Checks lib for synonyms of dic words
         for x in jrdata:
             for y in jrdata[x]:
+                print(y)
                 # Doesn't account for which one to check first, just checks what comes first in lib
-                if y.lower() == state_fut.lower():
+                if y == state_fut or y == state_new:
                     solved = True
-                    solved_fut = True
-                    print("True fut")
-                    tranState.append(x)
-                    extWords.clear()
-                    break
-                elif y.lower() == state_new.lower():
-                    solved = True
-                    print("True new")
+                    if y == state_fut:
+                        solved_fut = True
                     tranState.append(x)
                     extWords.clear()
                     break
 
-            if solved == True:
-                break
-           
-
-        # if solved == False:
-        #     extWords.append(state_org)
-
-        # if solved == False:
-        #     extWords.append(state_org)
-        
-        print(extWords)
+            if solved: break
 
     print(tranState)
 

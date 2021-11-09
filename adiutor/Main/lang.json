@@ -1,25 +1,25 @@
 {
     "wake":[
-        "Hey",
-        "Yo",
-        "Computer"
+        "hey",
+        "yo",
+        "computer"
     ],
 
     "greeting": [
-        "How are you doing",
-        "Whats up",
-        "Whats new",
+        "how are you doing",
+        "whats up",
+        "whats new",
         "whatcha doing",
-        "How's it going"
+        "how's it going"
     ],
 
     "queryinit": [
-        "What is",
-        "Who is",
-        "How do",
-        "Can you tell me",
-        "Whats",
-        "Can I get"
+        "what is",
+        "who is",
+        "how do",
+        "can you tell me",
+        "whats",
+        "can i get"
     ],
 
     "time": [
