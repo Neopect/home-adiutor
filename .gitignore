@@ -144,3 +144,5 @@ config.yml
 Testing/
 
 .vscode/
+
+.winwhl/
