@@ -53,6 +53,7 @@ def langIntrep(query):
         try: state_fut = state_new + " " + qlst[ct + 1].lower()
         except: print("EOP")
         
+        # Replace with a with as statement
         jr = open("adiutor\Main\lang.json")
         jrdata = json.load(jr)
         jr.close()
