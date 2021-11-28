@@ -54,14 +54,13 @@ def langIntrep(query):
         except: print("EOP")
         
         # Replace with a with as statement
-        jr = open("adiutor\Main\lang.json")
+        jr = open("adiutor/Main/lang.json")
         jrdata = json.load(jr)
         jr.close()
 
         # Checks lib for synonyms of dic words
         for x in jrdata:
             for y in jrdata[x]:
-                print(y)
                 # Doesn't account for which one to check first, just checks what comes first in lib
                 if y == state_fut or y == state_new:
                     solved = True
