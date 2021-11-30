@@ -15,6 +15,7 @@
 - Entertainment
   - Speakers
     - Control Music
+  - Games
 - Communications
   - Send messages to people
   - Read incoming messages
