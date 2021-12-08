@@ -18,6 +18,7 @@ Modules are the building bricks of the AI. This structure allows easy constructi
 ## Requirements for module
 - Communicate with Scheduler
 - Be independent
+- Cross communicable
 
 
 
