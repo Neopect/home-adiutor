@@ -1,8 +1,19 @@
 # Main file
-import coms
+import Data.data as data
+import Scheduler.clock as clock
+import Scheduler.queue as queue
 
-def init():
-    # Iniitalizes features
-    coms.query()
 
-init()
+def startWiz():
+    # Starts all the basic utilities to start AI
+    
+    # Configuration and Data files
+    dataWiz = data()
+    dataWiz.configRead()
+    dataWiz.findSources(dataWiz.storage)
+
+    # Scheduler
+    clockWiz = clock()
+    queueWiz = queue()
+
+startWiz()

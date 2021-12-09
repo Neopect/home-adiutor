@@ -25,3 +25,12 @@ Modules are the building bricks of the AI. This structure allows easy constructi
 # Sample Var standards:
 - Instanced
   - `['whatToInstance", ["inputs"]]`
+
+# Module Contents
+Each module will have access to these items
+- The main config file
+- Its own config file
+- A resource folder
+- Scheduler tabs
+- Other modules
+- 
