@@ -14,7 +14,7 @@ class Clock:
         ledger = []
         cron = CronTab(user=True) # Maybe make a dedicated user for this
 
-    def event_Add(name, comm, time):
+    def event_Add(self, name, comm, time):
         # global cron, ledger
         job = cron.new(command=comm, comment = name)
         job.setall(time)
@@ -58,3 +58,4 @@ class Clock:
 
 test = Clock()
 
+test.event_Add('test', 'echo "Hello humans"', )
