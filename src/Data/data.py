@@ -1,6 +1,7 @@
 from genericpath import exists
 import os
 import yaml
+import requests
 
 class data_sys_RW:
     def __init__(self):
@@ -55,4 +56,13 @@ class data_sys_RW:
             self.readSources(storage)
         else:
             self.genSources(storage)
+
+    def genModF():
+        global root_resources
+        os.chdir(root_resources)
+        pass
+
+    def delModF():
+        # Deletes module for removal
+        pass
 

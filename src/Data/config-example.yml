@@ -5,7 +5,6 @@ user:
 storage:
   # Must be absolute path
   dir_data: /path/to/folder
-  # dir_config: /path/to/folder
   dir_configs: /path/to/folder
   dir_resources: /path/to/folder
 
@@ -19,8 +18,8 @@ modules:
   placeholder: null
 
 server:
-  ip: '192.168.0.31'
-  port: 20
+  ip: '192.168.0.##'
+  port: 69
   enable: False
 
 speechRecognition:
